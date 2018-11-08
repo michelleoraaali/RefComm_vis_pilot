@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../jspsych.js" ></script>
+  <script src="../plugins/jspsych-survey-multi-select.js" ></script>
+  <link rel="stylesheet" href="../css/jspsych.css"></link>
+</head>
+
+<body>
+</body>
+  <script>
+
+      function saveData(name, data){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../write_php.php'); // 'write_data.php' is the path to the php file described above.
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    console.log( data );
+    xhr.send(JSON.stringify({filename: name, filedata: data}));
+    console.log(xhr);
+  }
+
+      // generate a random subject ID with 15 characters
+    var subject_id = jsPsych.randomization.randomID(15);
+    jsPsych.data.addProperties({
+      subject: subject_id,
+        });
+
+   var choices1 = ["Red", "Yellow", "Green", "Blue", "Black"];
+   var choices2 = ["Apples", "Bananas", "Carrots", "Donuts", "Eggplant"];
+   
+   var multi_choice_block = {
+      type: 'survey-multi-select',
+      questions: [{prompt: "Which of these colors do you like?", options: choices1, horizontal: true}, {prompt: "Which of these foods do you like?", options: choices2, horizontal: true}],
+      required: true,
+      on_finish: function(data) {
+        console.log("i'm data", data)
+      }
+   };
+    jsPsych.init({
+      timeline: [multi_choice_block],
+       on_finish: function(){ saveData(subject_id+"_"+"experiment_data", jsPsych.data.get().json()); }
+      //function(data) { jsPsych.data.displayData();},
+    });
+  </script>
+</html>

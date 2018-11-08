@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../jspsych.js"></script>
+  <script src="../plugins/jspsych-image-keyboard-response.js"></script>
+  <link rel="stylesheet" href="../css/jspsych.css"></link>
+  <style>
+    img {
+      width: 300px;
+    }
+  </style>
+</head>
+<body></body>
+<script>
+
+  var trial_1 = {
+    type: 'image-keyboard-response',
+    stimulus: 'img/black_chair_SC_DM.png',
+    choices: ['y','n'],
+    prompt: '<p>Are these objects the same color? Y or N.</p>'
+  }
+
+  var trial_2 = {
+    type: 'image-keyboard-response',
+    stimulus: 'img/orange_pumpkin_SC_DM.png',
+    choices: ['y','n'],
+    prompt: '<p>Are these objects made of the same material? Y or N.</p>'
+  }
+
+  var trial_3 = {
+    type: 'image-keyboard-response',
+    stimulus: 'img/yellow_organizer_SC_DM.png',
+    choices: ['y','n'],
+    prompt: '<p>Are these objects made of the same material? Y or N.</p>'
+  }
+
+  
+  jsPsych.init({
+    timeline: [trial_1, trial_2, trial_3],
+    on_finish: function() {
+      jsPsych.data.displayData();
+    },
+    default_iti: 250
+  });
+</script>
+
+</html>

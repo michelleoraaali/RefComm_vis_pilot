@@ -1,0 +1,1 @@
+rt,responses,trial_type,trial_index,time_elapsed,internal_node_id,subjectNEWLINE2746,{Q0:black},survey-text,0,2749,0.0-0.0-0.0,u65j7d6w0mqoqwcNEWLINE4173,{Q0:black},survey-text,1,6924,0.0-0.0-0.1,u65j7d6w0mqoqwc

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script src="../jspsych.js"></script>
+    <script src="../plugins/jspsych-survey-text.js"></script>
+    <link rel="stylesheet" href="../css/jspsych.css"></link>
+  </head>
+  <body></body>
+  <script>
+  var timeline = []
+
+  var survey_block_mat = {
+      type: 'survey-text',
+      preamble: ['<img src ="img/yellow_leather_boot.png"></img>'],
+      questions: [
+        {prompt: 'What material is this object made of?', columns: 50},
+      ]
+  };
+
+  var survey_block_col = {
+      type: 'survey-text',
+      preamble: ['<img src ="img/yellow_leather_boot.png"></img>'],
+      questions: [
+        {prompt: 'What color is this object?', columns: 50},
+      ]
+  };
+
+  var normingstim = [
+	{preamble: '<img src="img/yellow_leather_boot.png"></img>'},
+	]
+
+    var survey_block_norm = {
+      type: 'survey-text',
+      preamble: jsPsych.timelineVariable('preamble'),
+      questions: [ {prompt: 'What color is this object?', columns: 50},]
+  };
+
+
+      var test_procedure = {
+      timeline: [survey_block_norm],
+      timeline_variables: normingstim,
+/*      repetitions: 2,*/
+      randomize_order: true
+    }
+    timeline.push(test_procedure);
+
+
+  jsPsych.init({
+    timeline: [survey_block_mat, survey_block_col],
+    on_finish: function() { jsPsych.data.displayData(); }
+  });
+
+  </script>
+</html>

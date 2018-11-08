@@ -1,0 +1,1 @@
+rt,responses,trial_type,trial_index,time_elapsed,internal_node_id,subjectNEWLINE6573,{Q0:[Red,Green],Q1:[Bananas,Eggplant]},survey-multi-select,0,6584,0.0-0.0,cx3znx37ysjyznx

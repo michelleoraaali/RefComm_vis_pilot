@@ -1,0 +1,1 @@
+rt,responses,preamble,trial_type,trial_index,time_elapsed,internal_node_id,subjectNEWLINE2965,{Q0:black},<img src=img/black_cotton_pants.png></img>,survey-text,0,2967,0.0-0.0-0.0,x0p81h2l1hgeucwNEWLINE2673,{Q0:black},<img src=img/black_leather_boot.png></img>,survey-text,1,5642,0.0-0.0-0.1,x0p81h2l1hgeucw
